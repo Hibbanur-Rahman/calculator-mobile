@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import {
   StyleSheet,
@@ -33,7 +34,7 @@ function App(): React.JSX.Element {
   //get the height of the view port
   const {height} = Dimensions.get('window');
   const containerHeight = height;
-  const resultHeight = height * 0.3;
+  const resultHeight = height * 0.4;
   return (
     <View style={[styles.container, {height: containerHeight}]}>
       <View style={[styles.resultSection, {height: resultHeight}]}>
@@ -43,10 +44,78 @@ function App(): React.JSX.Element {
         <Text style={styles.processViewText}>12,345 + 6,789</Text>
       </View>
       <View style={styles.keyboardArea}>
-        <View>
-          <CustomButton onPress={handleCount} title="AC" />
-          <TouchableOpacity onPress={handleCount} style={styles.button}>
+        <View
+          style={[styles.row]}>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#363E4D',borderTopLeftRadius:15}]}>
+            <Text style={styles.buttonText}>AC</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#363E4D'}]}>
+            <Text style={styles.buttonText}>+/-</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#363E4D'}]}>
+            <Text style={styles.buttonText}>%</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#0060E5',borderTopRightRadius:15}]}>
+            <Text style={styles.buttonText}>/</Text>
+            {/* <Icon name='divide' size={26} color="#900" /> */}
+          </TouchableOpacity>
+        </View>
+        <View
+          style={[styles.row]}>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#242933'}]}>
+            <Text style={styles.buttonText}>7</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#242933'}]}>
+            <Text style={styles.buttonText}>8</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#242933'}]}>
+            <Text style={styles.buttonText}>9</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#0060E5'}]}>
+            <Text style={styles.buttonText}>X</Text>
+          </TouchableOpacity>
+        </View>
+        <View
+          style={[styles.row]}>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#242933'}]}>
+            <Text style={styles.buttonText}>4</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#242933'}]}>
+            <Text style={styles.buttonText}>5</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#242933'}]}>
+            <Text style={styles.buttonText}>6</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#0060E5'}]}>
+            <Text style={styles.buttonText}>-</Text>
+          </TouchableOpacity>
+        </View>
+        <View
+          style={[styles.row]}>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#242933'}]}>
             <Text style={styles.buttonText}>1</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#242933'}]}>
+            <Text style={styles.buttonText}>2</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#242933'}]}>
+            <Text style={styles.buttonText}>3</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#0060E5'}]}>
+            <Text style={styles.buttonText}>+</Text>
+          </TouchableOpacity>
+        </View>
+        <View
+          style={[styles.row]}>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#242933',width:'50%'}]}>
+            <Text style={styles.buttonText}>0</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#242933'}]}>
+            <Text style={styles.buttonText}>.</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleCount} style={[styles.button,{backgroundColor:'#0060E5'}]}>
+            <Text style={styles.buttonText}>=</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -86,15 +155,22 @@ const styles = StyleSheet.create({
   keyboardArea: {
     padding: 10,
   },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   button: {
     backgroundColor: '#1E90FF',
-    padding: 10,
+    padding: 20,
     borderRadius: 5,
     marginTop: 10,
+    width:'23%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonText: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 26,
     textAlign: 'center',
   },
 });
